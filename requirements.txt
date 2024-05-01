@@ -3,3 +3,5 @@ numpy
 tensorflow
 keras
 tensorflow-datasets
+imdb
+pad_sequences
