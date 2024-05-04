@@ -14,9 +14,9 @@ target = data.pop("winner")
 model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1000)
 model.fit(data, target)
 input=st.text_input("enter matchup")
-input = input.split(',')
+
 
 if st.button("Predict"):
-    st.write(model.predict(np.array(input)))
+    st.write(model.predict(np.array(input.split(','))))
 
 
