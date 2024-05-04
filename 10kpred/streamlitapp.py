@@ -18,6 +18,6 @@ input=[st.number_input("team 1"), st.number_input("team 2"), st.number_input("te
 
 
 if st.button("Predict"):
-    st.write(model.predict(np.array(input)))
+    st.write(model.predict(np.array([input])))
 
 
