@@ -13,10 +13,11 @@ data = pd.read_csv(datafile)
 target = data.pop("winner")
 model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1000)
 model.fit(data, target)
-input=st.text_input("enter matchup")
+input=[st.number_input("team 1"), st.number_input("team 2"), st.number_input("team 3"), st.number_input("team 4"), st.number_input("team 5"), st.number_input("team 6")]
+
 
 
 if st.button("Predict"):
-    st.write(model.predict(np.array(input.split(','))))
+    st.write(model.predict(np.array(input)))
 
 
