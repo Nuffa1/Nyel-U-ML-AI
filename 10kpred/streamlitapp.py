@@ -17,6 +17,6 @@ input=st.text_input("enter matchup")
 input = input.split(',')
 
 if st.button("Predict"):
-    st.write(model.predict(np.array([input])))
+    st.write(model.predict(np.array(input)))
 
 
