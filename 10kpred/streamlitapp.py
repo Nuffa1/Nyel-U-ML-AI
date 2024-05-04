@@ -6,6 +6,8 @@ import sklearn
 import streamlit as st
 from pathlib import Path
 
+st.title("Predictions App: Based on Logistic Regression with 2019 data from 10k")
+
 datafile = Path(__file__).parents[1] / '10kpred/newdata.csv'
 
 data = pd.read_csv(datafile)
@@ -18,6 +20,10 @@ input=[st.number_input("team 1"), st.number_input("team 2"), st.number_input("te
 
 
 if st.button("Predict"):
-    st.write(model.predict(np.array([input])))
+    if(model.predict(np.array([input])) == 0):
+        st.write("Predicted Outcome: Blue Alliance Win")
+    
+    if(model.predict(np.array([input])) == 1):
+        st.write("Predicted Outcome: Red Alliance Win")
 
 
