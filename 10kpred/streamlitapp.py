@@ -18,6 +18,6 @@ newMatchup = st.text_input("enter the matchup")
 
 
 if st.button("Predict"):
-    st.write(model.predict(np.array([newMatchup])))
+    st.write(model.predict(np.array([[newMatchup]])))
 
 
