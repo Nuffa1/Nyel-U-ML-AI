@@ -5,10 +5,6 @@ from sklearn.preprocessing import StandardScaler
 import sklearn
 import streamlit as st
 
-data = pd.read_csv("../10kpred/newdata.csv")
-target = data.pop("winner")
-model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1000)
-model.fit(data, target)
-result = model.predict(np.array([[3023,2501,5172,3026,2502,3871]]))
 
-st.title(result)
+
+st.title("resul")
