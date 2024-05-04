@@ -13,6 +13,10 @@ data = pd.read_csv(datafile)
 target = data.pop("winner")
 model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1000)
 model.fit(data, target)
-model.predict(np.array([[3023,2501,5172,3026,2502,3871]]))
+
+newMatchup = st.text_input("enter the matchup")
+model.predict(np.array([newMatchup]))
+
+
 
 
