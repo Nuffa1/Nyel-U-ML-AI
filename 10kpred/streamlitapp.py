@@ -15,8 +15,9 @@ model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1
 model.fit(data, target)
 
 newMatchup = st.text_input("enter the matchup")
-model.predict(np.array([newMatchup]))
 
 
+if st.button("Predict"):
+    st.write(model.predict(np.array([newMatchup])))
 
 
