@@ -7,4 +7,4 @@ import streamlit as st
 
 
 
-st.title("resul")
+data = pd.read_csv('newdata.csv')
