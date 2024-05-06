@@ -15,7 +15,7 @@ data = pd.read_csv(datafile)
 target = data.pop("winner")
 model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1000)
 model.fit(data, target)
-input=[st.number_input("team 1 (blue alliance)"), st.number_input("team 2 (blue alliance)"), st.number_input("team 3 (blue alliance)"), st.number_input("team 4 (red alliance)"), st.number_input("team 5 (red alliance)"), st.number_input("team 6 (red alliance)")]
+input=[st.number_input("team 1 (blue alliance)", value=0), st.number_input("team 2 (blue alliance)", value=0), st.number_input("team 3 (blue alliance)", value=0), st.number_input("team 4 (red alliance)", value=0), st.number_input("team 5 (red alliance)", value=0), st.number_input("team 6 (red alliance)", value=0)]
 
 
 
