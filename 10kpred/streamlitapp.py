@@ -15,15 +15,15 @@ data = pd.read_csv(datafile)
 target = data.pop("winner")
 model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1000)
 model.fit(data, target)
-input=[st.number_input("team 1 (blue alliance)", step=1), st.number_input("team 2 (blue alliance)", step=1), st.number_input("team 3 (blue alliance)", step=1), st.number_input("team 4 (red alliance)", step=1), st.number_input("team 5 (red alliance)", step=1), st.number_input("team 6 (red alliance)", step=1)]
+input=[st.number_input("team 1 (red alliance)", step=1), st.number_input("team 2 (red alliance)", step=1), st.number_input("team 3 (red alliance)", step=1), st.number_input("team 4 (blue alliance)", step=1), st.number_input("team 5 (blue alliance)", step=1), st.number_input("team 6 (blue alliance)", step=1)]
 
 
 
 if st.button("Predict"):
     if(model.predict(np.array([input])) == 0):
-        st.write("Predicted Outcome: Blue Alliance Win")
+        st.write("Predicted Outcome: Red Alliance Win")
     
     if(model.predict(np.array([input])) == 1):
-        st.write("Predicted Outcome: Red Alliance Win")
+        st.write("Predicted Outcome: Blue Alliance Win")
 
 
