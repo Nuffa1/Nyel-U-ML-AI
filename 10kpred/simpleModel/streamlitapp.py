@@ -8,7 +8,7 @@ from pathlib import Path
 
 st.title("Predictions App: Based on Logistic Regression with 2019 data from 10k")
 
-datafile = Path(__file__).parents[1] / '10kpred/simpleModel/newdata.csv'
+datafile = Path(__file__).parents[1] / 'simpleModel/newdata.csv'
 
 data = pd.read_csv(datafile)
 
