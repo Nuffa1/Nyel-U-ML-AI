@@ -22,10 +22,10 @@ newMatchup = np.array([input])
 
 
 if st.button("Predict"):
-    if(model.predict(encoder.transform(newMatchup)).toarray() == 0):
+    if(model.predict(encoder.transform(newMatchup)) == 0):
         st.write("Predicted Outcome: Red Alliance Win")
     
-    if(model.predict(encoder.transform(newMatchup)).toarray() == 1):
+    if(model.predict(encoder.transform(newMatchup)) == 1):
         st.write("Predicted Outcome: Blue Alliance Win")
 
 
