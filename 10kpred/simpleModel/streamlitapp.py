@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import OneHotEncoder
 import sklearn
 import streamlit as st
 from pathlib import Path
@@ -14,6 +14,8 @@ data = pd.read_csv(datafile)
 
 target = data.pop("winner")
 model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1000)
+encoder = OneHotEncoder()
+encoded_data = encoder.fit_transform(data)
 model.fit(data, target)
 input=[st.number_input("team 1 (red alliance)", step=1), st.number_input("team 2 (red alliance)", step=1), st.number_input("team 3 (red alliance)", step=1), st.number_input("team 4 (blue alliance)", step=1), st.number_input("team 5 (blue alliance)", step=1), st.number_input("team 6 (blue alliance)", step=1)]
 
