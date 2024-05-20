@@ -15,17 +15,17 @@ data = pd.read_csv(datafile)
 target = data.pop("winner")
 model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1000)
 encoder = OneHotEncoder()
-encoded_data = encoder.fit_transform(data)
-model.fit(data, target)
+encoded_data = encoder.fit_transform(data).toarray()
+model.fit(encoded_data, target)
 input=[st.number_input("team 1 (red alliance)", step=1), st.number_input("team 2 (red alliance)", step=1), st.number_input("team 3 (red alliance)", step=1), st.number_input("team 4 (blue alliance)", step=1), st.number_input("team 5 (blue alliance)", step=1), st.number_input("team 6 (blue alliance)", step=1)]
-
+newMatchup = np.array(input)
 
 
 if st.button("Predict"):
-    if(model.predict(np.array([input])) == 0):
+    if(model.predict(encoder.transform(newMatchup)).toarray() == 0):
         st.write("Predicted Outcome: Red Alliance Win")
     
-    if(model.predict(np.array([input])) == 1):
+    if(model.predict(encoder.transform(newMatchup)).toarray() == 1):
         st.write("Predicted Outcome: Blue Alliance Win")
 
 
