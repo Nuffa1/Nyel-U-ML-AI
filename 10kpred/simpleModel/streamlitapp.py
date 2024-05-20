@@ -18,7 +18,7 @@ encoder = OneHotEncoder()
 encoded_data = encoder.fit_transform(data).toarray()
 model.fit(encoded_data, target)
 input=[st.number_input("team 1 (red alliance)", step=1), st.number_input("team 2 (red alliance)", step=1), st.number_input("team 3 (red alliance)", step=1), st.number_input("team 4 (blue alliance)", step=1), st.number_input("team 5 (blue alliance)", step=1), st.number_input("team 6 (blue alliance)", step=1)]
-newMatchup = np.array(input)
+newMatchup = np.array([input])
 
 
 if st.button("Predict"):
