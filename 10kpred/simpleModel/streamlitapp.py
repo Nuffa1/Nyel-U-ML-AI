@@ -13,6 +13,8 @@ datafile = Path(__file__).parents[1] / 'simpleModel/newdata.csv'
 data = pd.read_csv(datafile)
 
 target = data.pop("winner")
+data[['team1', 'team2', 'team3']] = data[['team1', 'team2', 'team3']].apply(sorted)
+data[['team4', 'team5', 'team6']] = data[['team4', 'team5', 'team6']].apply(sorted)
 model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1000)
 encoder = OneHotEncoder()
 encoded_data = encoder.fit_transform(data).toarray()
